@@ -45,7 +45,6 @@ public class Words {
         }
         List<String> words = wordsByLength.get(word.length());
         words.add(word);
-        wordsByLength.replace(word.length(), words);
     }
 
     private void processLine(String line) {
