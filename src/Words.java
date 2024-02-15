@@ -27,7 +27,7 @@ public class Words {
     public void setWord(Integer length) {
         Random rand = new Random();
         List<String> words = wordsByLength.get(length);
-        String word = words.get(rand.nextInt(words.size() - 1));
+        String word = words.get(rand.nextInt(words.size()));
         wordChar = parseWord(word);
     }
 
