@@ -28,6 +28,7 @@ public class Word {
             throw new WrongLengthException("Guess is longer/shorter than original word");
         }
 
+        guess = guess.toLowerCase();
         this.resetStatus();
         Map<Character, Integer> charCount = new HashMap<>();
 
