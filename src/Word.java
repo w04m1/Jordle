@@ -20,7 +20,11 @@ public class Word {
         System.out.println(Arrays.toString(status));
     }
 
-    public void compare(String guess) {
+    public void compare(String guess) throws WrongLengthException {
+        if (guess.length() != chars.length) {
+            throw new WrongLengthException("Guess is longer/shorter than original word");
+        }
+
         this.resetStatus();
         Map<Character, Integer> charCount = new HashMap<>();
 
