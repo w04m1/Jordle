@@ -1,8 +1,10 @@
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 
 public class Word {
     private final Character[] chars;
-    private Status[] status;
+    private final Status[] status;
 
     public Word(Character[] word) {
         this.chars = word;
@@ -20,22 +22,23 @@ public class Word {
 
     public void compare(String guess) {
         this.resetStatus();
+        Map<Character, Integer> charCount = new HashMap<>();
+
+        for (Character c : chars) {
+            charCount.put(c, charCount.getOrDefault(c, 0) + 1);
+        }
+
         for (int i = 0; i < chars.length; i++) {
-            Character temp = guess.charAt(i);
+            char temp = guess.charAt(i);
             if (temp == chars[i]) {
                 status[i] = Status.CORRECT;
-                continue;
+                charCount.put(temp, charCount.get(temp) - 1);
+            } else if (charCount.getOrDefault(temp, 0) > 0) {
+                status[i] = Status.WRONGPOS;
+                charCount.put(temp, charCount.get(temp) - 1);
+            } else {
+                status[i] = Status.MISSING;
             }
-            Boolean in = false;
-            for (int j = 0; j < chars.length; j++) {
-                if (chars[j] != temp) {continue;}
-                if (status[j] == Status.MISSING) {
-                    status[j] = Status.WRONGPOS;
-                    break;
-                }
-                status[j] = Status.MISSING;
-            }
-
         }
     }
 }
