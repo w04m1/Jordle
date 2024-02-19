@@ -6,9 +6,12 @@ public class Word {
     private final Character[] chars;
     private final Status[] status;
 
+    public final Integer length;
+
     public Word(Character[] word) {
         this.chars = word;
         this.status = new Status[word.length];
+        this.length = word.length;
         this.resetStatus();
     }
 
