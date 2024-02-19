@@ -27,3 +27,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+*.excalidraw
+.idea/git_toolbox_prj.xml
