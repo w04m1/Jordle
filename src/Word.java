@@ -19,8 +19,8 @@ public class Word {
         Arrays.fill(this.status, Status.MISSING);
     }
 
-    public void printStatus() {
-        System.out.println(Arrays.toString(status));
+    public Status[] getStatus() {
+        return status;
     }
 
     public void compare(String guess) throws WrongLengthException {
