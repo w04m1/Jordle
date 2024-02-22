@@ -8,31 +8,20 @@ import java.io.IOException;
 public class Words {
     private final Map<Integer, List<String>> wordsByLength = new HashMap<>();
     private final Path wordsFile = Paths.get("src/resources/words.txt");
-    public Character[] wordChar;
 
     public Words() {
         loadWords();
     }
 
-
-//    For now this code is redundant
-/*
-    private static class FileReader {
-        public static List<String> readFile(String filePath) throws IOException {
-            return Files.readAllLines(Paths.get(filePath));
-        }
-    }
-*/
-
-    public void setWord(Integer length) {
+    public char[] getWord(int length) {
         Random rand = new Random();
         List<String> words = wordsByLength.get(length);
         String word = words.get(rand.nextInt(words.size()));
-        wordChar = parseWord(word);
+        return parseWord(word);
     }
 
-    private Character[] parseWord(String word) {
-        Character[] res = new Character[word.length()];
+    private char[] parseWord(String word) {
+        char[] res = new char[word.length()];
         for (int i = 0; i < word.length(); i++) {
             res[i] = word.charAt(i);
         }

@@ -3,24 +3,24 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class Word {
-    private final Character[] chars;
+    private char[] chars;
     private final Status[] status;
+    public final int length;
+    private final Words words = new Words();
 
-    public final Integer length;
+    public Word(int length) {
+        this.length = length;
+        this.status = new Status[this.length];
+        this.changeWord();
+    }
 
-    public Word(Character[] word) {
-        this.chars = word;
-        this.status = new Status[word.length];
-        this.length = word.length;
+    public void changeWord() {
+        this.chars = words.getWord(this.length);
         this.resetStatus();
     }
 
     private void resetStatus() {
         Arrays.fill(this.status, Status.MISSING);
-    }
-
-    public Status[] getStatus() {
-        return status;
     }
 
     public void compare(String guess) throws WrongLengthException {
@@ -48,5 +48,13 @@ public class Word {
                 status[i] = Status.MISSING;
             }
         }
+    }
+
+    public Status[] getStatus() {
+        return status;
+    }
+
+    public char[] getChars() {
+        return chars;
     }
 }

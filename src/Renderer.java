@@ -31,11 +31,11 @@ public class Renderer {
         System.out.println(messages.getString("byeMessage"));
     }
 
-    public void drawGuess(Character[] chars, Status[] statuses) {
+    public void drawGuess(char[] chars, Status[] statuses) {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < chars.length; i++) {
             builder.append(statuses[i])
-                    .append(chars[i].toString())
+                    .append(chars[i])
                     .append("\u001B[0m")    // reset style code
                     .append(" ");
         }
