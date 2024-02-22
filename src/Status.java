@@ -1,4 +1,6 @@
-public enum Status {
+import java.util.function.Predicate;
+
+public enum Status implements Predicate<Status> {
     MISSING("\u001B[31m"),
     WRONGPOS("\u001B[33m"),
     CORRECT("\u001B[32m");
@@ -12,5 +14,10 @@ public enum Status {
     @Override
     public String toString() {
         return this.s;
+    }
+
+    @Override
+    public boolean test(Status status) {
+        return false;
     }
 }
