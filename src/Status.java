@@ -18,6 +18,6 @@ public enum Status implements Predicate<Status> {
 
     @Override
     public boolean test(Status status) {
-        return false;
+        return this == status;
     }
 }
