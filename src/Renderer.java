@@ -11,14 +11,6 @@ public class Renderer {
         System.out.println(messages.getString("welcomeMessage"));
     }
 
-    public void sendWinMessage() {
-        System.out.println(messages.getString("winMessage"));
-    }
-
-    public void sendLoseMessage() {
-        System.out.println(messages.getString("loseMessage"));
-    }
-
     public void sendGuessMessage() {
         System.out.print(messages.getString("guessMessage"));
     }
@@ -29,6 +21,18 @@ public class Renderer {
 
     public void sendByeMessage() {
         System.out.println(messages.getString("byeMessage"));
+    }
+
+    public void sendErrorMessage(int wordLength) {
+        System.out.printf(messages.getString("errorMessage")+ "\n", wordLength);
+    }
+
+    public void sendInvalidInputMessage() {
+        System.out.print(messages.getString("invalidInputMessage"));
+    }
+
+    public void displayEndGameMessage(boolean win) {
+        System.out.println(messages.getString(win ? "winMessage": "loseMessage"));
     }
 
     public void drawGuess(char[] chars, Status[] statuses) {
