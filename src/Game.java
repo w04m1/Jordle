@@ -71,9 +71,4 @@ public class Game {
     private void setUpGame() {
         renderer.sendWelcomeMessage();
     }
-
-    public static void main(String[] args) {
-        Game game = new Game();
-        game.startGame();
-    }
 }
