@@ -1,5 +1,4 @@
 # Jordle
-___
 A CLI version of Wordle game implemented in Java for educational purposes.
 
 ### Requirements
