@@ -1,13 +1,13 @@
-import java.nio.file.Path;
-import java.util.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.io.IOException;
+package com.w04m1.jordle;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.*;
 
 public class Words {
     private final Map<Integer, List<String>> wordsByLength = new HashMap<>();
-    private final Path wordsFile = Paths.get("src/resources/words.txt");
 
     public Words() {
         loadWords();
@@ -41,14 +41,14 @@ public class Words {
     }
 
     private void loadWords() {
-        List<String> lines = new ArrayList<>();
-        try {
-            lines = Files.readAllLines(wordsFile);
-        } catch (IOException exception) {
-            System.err.println("No words file found.");
-        }
-        for (String line: lines) {
-            processLine(line);
+        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("words.txt");
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                processLine(line);
+            }
+        } catch (IOException | NullPointerException e) {
+            System.err.println("Failed to load words from resource file.");
         }
     }
 }

@@ -1,10 +1,12 @@
+package com.w04m1.jordle;
+
 import java.util.ResourceBundle;
 
 public class Renderer {
     private final ResourceBundle messages;
 
     public Renderer () {
-        this.messages = ResourceBundle.getBundle("resources/messages");
+        this.messages = ResourceBundle.getBundle("messages");
     }
 
     public void sendWelcomeMessage() {
@@ -24,7 +26,7 @@ public class Renderer {
     }
 
     public void sendErrorMessage(int wordLength) {
-        System.out.printf(messages.getString("errorMessage")+ "\n", wordLength);
+        System.out.printf(messages.getString("errorMessage") + "\n", wordLength);
     }
 
     public void sendInvalidInputMessage() {
@@ -32,7 +34,7 @@ public class Renderer {
     }
 
     public void displayEndGameMessage(boolean win) {
-        System.out.println(messages.getString(win ? "winMessage": "loseMessage"));
+        System.out.println(messages.getString(win ? "winMessage" : "loseMessage"));
     }
 
     public void drawGuess(char[] chars, Status[] statuses) {
@@ -40,7 +42,7 @@ public class Renderer {
         for (int i = 0; i < chars.length; i++) {
             builder.append(statuses[i])
                     .append(chars[i])
-                    .append("\u001B[0m")    // reset style code
+                    .append("\u001B[0m")
                     .append(" ");
         }
         System.out.println(builder);

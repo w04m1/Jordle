@@ -1,3 +1,5 @@
+package com.w04m1.jordle;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
