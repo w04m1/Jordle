@@ -1,7 +1,7 @@
 # Jordle
 A CLI version of Wordle game implemented in Java for educational purposes.
 
-![Gameplay](https://imgur.com/BwcYomI)
+![Gameplay](https://i.imgur.com/BwcYomI.png)
 
 ### Requirements
 - Java 17+
