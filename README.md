@@ -10,3 +10,6 @@ A CLI version of Wordle game implemented in Java for educational purposes.
 Latest .jar can be downloaded from [releases page](https://github.com/w04m1/Jordle/releases).
 
 
+### Future plans
+- Cover with tests
+- Migrate to web :)
